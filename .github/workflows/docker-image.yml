@@ -52,8 +52,8 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: latest
-          labels: ${{ steps.meta.outputs.labels }}
+          #tags: latest
+          #labels: ${{ steps.meta.outputs.labels }}
 
       - name: Deploy
         uses: actions/checkout@v2 
