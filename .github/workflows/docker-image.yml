@@ -54,18 +54,15 @@ jobs:
           tags: alekseyddd/mysuperset:latest
           ##labels: # steps.meta.outputs.labels
 
-      - name: Deploy
-        uses: actions/checkout@v2 
-        env:
-            PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-            HOSTNAME: ${{secrets.SSH_HOST}}
-            USER_NAME: ${{secrets.USER_NAME}}
-        
+      - name: executing remote ssh commands using ssh key
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+            host: ${{ secrets.SSH_HOST}}
+            username: ${{ secrets.USER_NAME }}
+            key: ${{ secrets.SSH_PRIVATE_KEY }}
+            port: ${{ secrets.SSH_PORT }}
             script: |
-              echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
-              ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} '
-
-                  # Now we have got the access of EC2 and we will start the deploy .
-                  cd /home/ubuntu/ &&
-                  mkdir github_action
-                  '
+                cd /home/ubuntu/superset
+                docker compose -f docker-compose-non-dev.yml stop
+                docker compose -f docker-compose-non-dev.yml pull
+                docker compose -f docker-compose-non-dev.yml up -d

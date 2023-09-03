@@ -20,5 +20,6 @@ jobs:
             port: ${{ secrets.SSH_PORT }}
             script: |
                 cd /home/ubuntu/superset
+                
                 docker compose -f docker-compose-non-dev.yml pull
                 docker compose -f docker-compose-non-dev.yml up -d
