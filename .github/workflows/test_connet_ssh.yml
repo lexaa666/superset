@@ -19,7 +19,6 @@ jobs:
             key: ${{ secrets.SSH_PRIVATE_KEY }}
             port: ${{ secrets.SSH_PORT }}
             script: |
-                    git clone git@github.com:lexaa666/superset.git
-                    cd superset
-                    docker-compose -f docker-compose-non-dev.yml pull
-                    docker-compose -f docker-compose-non-dev.yml up
+                cd /home/ubuntu/superset
+                docker compose -f docker-compose-non-dev.yml pull
+                docker compose -f docker-compose-non-dev.yml up -d
