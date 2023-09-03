@@ -21,7 +21,7 @@ set -eo pipefail
 REQUIREMENTS_LOCAL="/app/docker/requirements-local.txt"
 # If Cypress run – overwrite the password for admin and export env variables
 if [ "$CYPRESS_CONFIG" == "true" ]; then
-    export SUPERSET_CONFIG=tests.integration_tests.superset_test_config
+    #export SUPERSET_CONFIG=tests.integration_tests.superset_test_config
     export SUPERSET_TESTENV=true
     export SUPERSET__SQLALCHEMY_DATABASE_URI=postgresql+psycopg2://superset_db:superset_db_1@terraform-20230903085537045600000001.ckbdcqdgeg9o.eu-central-1.rds.amazonaws.com:5432/superset_db
 fi
