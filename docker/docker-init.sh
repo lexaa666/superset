@@ -57,7 +57,6 @@ superset fab create-admin \
               --firstname Superset \
               --lastname Admin \
               --email admin@superset.com \
-              #--password admin
               --password $ADMIN_PASSWOD
 echo_step "2" "Complete" "Setting up admin user"
 # Create default roles and permissions
