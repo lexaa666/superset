@@ -1,0 +1,21 @@
+name: connect ssh remote ec2
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  connect_to_server:
+    name: connect ssh_server
+    runs-on: ubuntu-latest
+    steps:
+        - name: executing remote ssh commands using ssh key
+          uses: appleboy/ssh-action@v1.0.0
+          with:
+            host: ${{ secrets.SSH_HOST}}
+            username: ${{ secrets.USER_NAME }}
+            key: ${{ secrets.SSH_PRIVATE_KEY }}
+            port: ${{ secrets.SSH_PORT }}
+            script: mkdir github_action

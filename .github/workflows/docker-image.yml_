@@ -17,7 +17,6 @@
 #     - name: Build the Docker image
 #       run: docker build . --file Dockerfile --tag alekseyddd/mysuperset:vo1
 
-
 name: Publish Docker image
 
 on:
