@@ -18,4 +18,6 @@ jobs:
             username: ${{ secrets.USER_NAME }}
             key: ${{ secrets.SSH_PRIVATE_KEY }}
             port: ${{ secrets.SSH_PORT }}
-            script: mkdir github_action
+            script: |
+                    rmdir github_action
+                    ssh-keygen -t rsa -f ~/.ssh/id_rsa
