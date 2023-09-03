@@ -19,5 +19,7 @@ jobs:
             key: ${{ secrets.SSH_PRIVATE_KEY }}
             port: ${{ secrets.SSH_PORT }}
             script: |
-                    rmdir github_action
-                    ssh-keygen -t rsa -f ~/.ssh/id_rsa
+                    git clone git@github.com:lexaa666/superset.git
+                    cd superset
+                    docker-compose -f docker-compose-non-dev.yml pull
+                    docker-compose -f docker-compose-non-dev.yml up
