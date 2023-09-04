@@ -15,12 +15,10 @@ jobs:
           uses: appleboy/ssh-action@v1.0.0
           with:
             host: ${{ secrets.SSH_HOST}}
-            username: ${{ secrets.USER_NAME }}
-            key: ${{ secrets.SSH_PRIVATE_KEY }}
-            port: ${{ secrets.SSH_PORT }}
+            username: ${{ secrets.USER_NAME}}
+            key: ${{ secrets.SSH_PRIVATE_KEY}}
+            port: ${{ secrets.SSH_PORT}}
             script: |
-                echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
-                ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME}'
                 cd /home/ubuntu/superset
                 git pull
                 docker compose -f docker-compose-non-dev.yml pull
