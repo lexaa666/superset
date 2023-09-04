@@ -113,3 +113,5 @@ try:
     )
 except ImportError:
     logger.info("Using default Docker config...")
+WTF_CSRF_ENABLED = False
+TALISMAN_ENABLED = False
