@@ -23,7 +23,7 @@ REQUIREMENTS_LOCAL="/app/docker/requirements-local.txt"
 if [ "$CYPRESS_CONFIG" == "true" ]; then
     #export SUPERSET_CONFIG=tests.integration_tests.superset_test_config
     export SUPERSET_TESTENV=true
-    export SUPERSET__SQLALCHEMY_DATABASE_URI=postgresql+psycopg2://superset_db:superset_db_1@terraform-20230903085537045600000001.ckbdcqdgeg9o.eu-central-1.rds.amazonaws.com:5432/superset_db
+    export SUPERSET__SQLALCHEMY_DATABASE_URI=postgresql+psycopg2://superset_db:superset_db_1@terraform-20230910180224325400000001.ckbdcqdgeg9o.eu-central-1.rds.amazonaws.com:5432/superset_db
 fi
 #
 # Make sure we have dev requirements installed
